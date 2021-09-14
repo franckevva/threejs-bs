@@ -29,3 +29,5 @@ testem.log
 Thumbs.db
 
 *.js
+# ignore views js files
+!**/views/*.js
