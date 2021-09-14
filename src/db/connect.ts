@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
-import config from "config";
 
 function connect() {
-  const dbUri = process.env.DB_URI || config.get("dbUri") as string;
+  const dbUri = process.env.DB_URI as string;
 
   return mongoose
     .connect(dbUri)

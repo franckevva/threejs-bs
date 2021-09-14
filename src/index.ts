@@ -1,5 +1,4 @@
 import express from "express";
-import config from "config";
 import cors from "cors";
 import { json } from "body-parser";
 
@@ -10,7 +9,7 @@ const port = Number(process.env.PORT) || 8000;
 const host = process.env.HOST || "localhost";
 const allowedOrigins = ["http://localhost:8081"];
 const options: cors.CorsOptions = {
-  origin: allowedOrigins,
+  origin: "*",
 };
 
 const app = express();
