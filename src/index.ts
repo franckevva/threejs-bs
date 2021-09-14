@@ -6,8 +6,8 @@ import { json } from "body-parser";
 import { sceneRouter } from "./routes/scene";
 import connect from "./db/connect";
 
-const port = config.get("port") as number;
-const host = config.get("host") as string;
+const port = Number(process.env.PORT) || 8000;
+const host = process.env.HOST || "localhost";
 const allowedOrigins = ["http://localhost:8081"];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
