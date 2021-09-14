@@ -7,9 +7,9 @@ import connect from "./db/connect";
 
 const port = Number(process.env.PORT) || 8000;
 const host = process.env.HOST || "localhost";
-const allowedOrigins = ["http://localhost:8081"];
+const allowedOrigins = ["http://localhost:4200", process.env.URL as string];
 const options: cors.CorsOptions = {
-  origin: "*",
+  origin: allowedOrigins,
 };
 
 const app = express();
