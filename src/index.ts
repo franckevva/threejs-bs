@@ -20,8 +20,8 @@ app.use(json());
 const path = __dirname + "/views/";
 app.use(express.static(path));
 
-app.get("/", function (req, res) {
-  res.sendFile(path + "index.html");
+app.get("/", (req, res) => {
+  res.render(path + "index.html");
 });
 
 app.use(sceneRouter);
