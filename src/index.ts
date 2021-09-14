@@ -20,7 +20,8 @@ const path = __dirname + "/views/";
 app.use(express.static(path));
 
 app.get("/", (req, res) => {
-  res.render(path + "index.html");
+  console.log('get /', req, 'return ', path);
+  res.sendFile(path + "index.html");
 });
 
 app.use(sceneRouter);
