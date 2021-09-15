@@ -7,7 +7,7 @@ import connect from "./db/connect";
 
 const port = Number(process.env.PORT) || 8000;
 const host = process.env.HOST || "localhost";
-const allowedOrigins = ["http://localhost:4200", process.env.URL as string];
+const allowedOrigins = ["http://localhost:4200", "http://localhost:8000", process.env.URL as string];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
 };
@@ -20,7 +20,6 @@ const path = __dirname + "/views/";
 app.use(express.static(path));
 
 app.get("/", (req, res) => {
-  console.log('get /', req, 'return ', path);
   res.sendFile(path + "index.html");
 });
 
@@ -29,5 +28,5 @@ app.use(sceneRouter);
 connect();
 
 app.listen(port, host, () => {
-  console.log(`server is listening on port: ${host}//:${port}`);
+  console.log(`server is listening on port: http://${host}:${port}`);
 });

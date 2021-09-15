@@ -42,23 +42,3 @@ const SceneState = mongoose.model<SceneStateDoc, sceneStateModelInterface>(
 );
 
 export { SceneState };
-
-/* export interface SceneStateDoc extends mongoose.Document {
-  cameraPosition: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const sceneStateSchema = new mongoose.Schema(
-  {
-    cameraPosition: { type: String, default: true },
-  },
-  { timestamps: true }
-);
-
-export const SceneState = mongoose.model<SceneStateDoc>(
-  "SceneState",
-  sceneStateSchema
-);
- */
-// export SceneState;
