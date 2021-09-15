@@ -5,15 +5,15 @@ interface ISceneState {
   userId: string;
 }
 
-interface sceneStateModelInterface extends mongoose.Model<SceneStateDoc> {
-  build(attr: ISceneState): SceneStateDoc;
-}
-
 interface SceneStateDoc extends mongoose.Document {
   cameraPosition: string;
   userId: string;
   createdAt: Date;
   updatedAt: Date;
+}
+
+interface sceneStateModelInterface extends mongoose.Model<SceneStateDoc> {
+  build(attr: ISceneState): SceneStateDoc;
 }
 
 const sceneStateSchema = new mongoose.Schema(
@@ -32,13 +32,13 @@ const sceneStateSchema = new mongoose.Schema(
   }
 );
 
-sceneStateSchema.statics.build = (attr: ISceneState) => {
-  return new SceneState(attr);
-};
-
 const SceneState = mongoose.model<SceneStateDoc, sceneStateModelInterface>(
   "SceneState",
   sceneStateSchema
 );
+
+sceneStateSchema.statics.build = (attr: ISceneState) => {
+  return new SceneState(attr);
+};
 
 export { SceneState };
